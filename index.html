@@ -3,56 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scheda Caviglia Digitale v4</title>
+  <title>Scheda Caviglia v7</title>
   <style>
     :root{--blue:#1e4ea1;--blue2:#2f73c9;--light:#f4f8fc;--border:#c9dcec;--text:#203040;--muted:#5c6a7a;--green:#23864a;--greenbg:#e8f7ee;--red:#c23b3b;--redbg:#fceeee;--amber:#b97900;--amberbg:#fff6e2;--line:#e4edf4;--shadow:0 8px 24px rgba(18,40,72,.08)}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef3f8;color:var(--text)}
-    .wrap{max-width:1220px;margin:0 auto;padding:20px}.topbar{position:sticky;top:0;z-index:80;background:rgba(238,243,248,.96);backdrop-filter:blur(10px);padding:8px 0 10px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.titlebox strong{font-size:20px}.titlebox div{font-size:14px;color:var(--muted);margin-top:4px}
-    .actions,.quicknav{display:flex;gap:8px;flex-wrap:wrap}.btn,.navbtn{min-height:44px;padding:12px 14px;border-radius:999px;border:1px solid var(--border);background:#fff;cursor:pointer;font-weight:700;color:var(--text);text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.btn.warn{background:#f8fbff}
-    .sheet{background:#fff;border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.header{padding:30px 34px 24px;border-bottom:10px solid var(--blue)}.logo{font-size:15px;font-weight:800;letter-spacing:.08em;color:var(--blue);text-transform:uppercase}.maintitle{margin-top:24px;font-size:18px;font-weight:700;text-transform:uppercase;color:#34495e}.ankle{font-size:58px;line-height:1;font-weight:800;color:var(--blue2);margin-top:6px}.subtitle{margin-top:12px;color:var(--muted)}
-    .pillrow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}.pill{background:#edf4fb;color:var(--blue);text-align:center;padding:12px;border-radius:8px;font-weight:700}.patient{border:1px solid #8ed0e7;border-radius:16px;background:#f2f5fb;padding:22px}.labelcap{font-size:12px;font-weight:800;text-transform:uppercase;color:#56697d;letter-spacing:.04em;margin-bottom:18px}
-    .grid2,.grid3,.grid4{display:grid;gap:16px}.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(4,1fr)}.field label{display:block;font-size:12px;font-weight:700;color:#56697d;text-transform:uppercase;margin-bottom:5px}
-    input,textarea,select{width:100%;padding:12px 12px;border:none;border-bottom:2px solid #8ec7db;background:transparent;font-size:16px;border-radius:0} textarea{border:1px solid var(--border);border-radius:8px;background:#fff;min-height:96px} input[readonly]{background:#f7fbff} input[type="checkbox"],input[type="radio"]{width:20px;height:20px} 
-    .section{padding:24px 34px;border-top:1px solid var(--line)} .banner{background:var(--blue);color:#fff;padding:13px 16px;border-radius:8px;font-weight:800;font-size:26px}.subtext{margin:10px 0 18px;color:var(--muted)} .soft{background:#eaf7ee;border-left:4px solid #2f8f46;padding:12px 14px;border-radius:6px;margin:14px 0 18px;color:#46624f}
-    .box{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}.box h3{margin:0 0 8px;color:var(--blue);font-size:18px}.box p{margin:0 0 12px;color:var(--muted);font-size:14px} table{width:100%;border-collapse:collapse;background:#fff} th,td{border:1px solid var(--border);padding:8px;vertical-align:middle} th{background:var(--blue);color:#fff;text-align:left}
-    .subhead{margin:18px 0 10px;color:var(--blue);font-weight:800;font-size:22px}.footnote{margin-top:16px;background:#eef6ff;border-left:5px solid #6fb5ff;padding:14px 16px}.quicklink{margin-top:18px;padding:14px 16px;background:#f8fbff;border:1px dashed var(--border);border-radius:12px}.status{margin-top:10px;font-size:13px;color:var(--muted)}
-    .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.sumcard{border-radius:14px;padding:16px;border:1px solid var(--border);background:#fff}.sumcard h4{margin:0 0 6px;font-size:14px;text-transform:uppercase;color:var(--muted)}.sumcard .big{font-size:24px;font-weight:800}.ok{background:var(--greenbg)!important;color:var(--green)!important}.bad{background:var(--redbg)!important;color:var(--red)!important}.mid{background:var(--amberbg)!important;color:var(--amber)!important}
-    .criterion{padding:12px;border-radius:12px;border:1px solid var(--border);background:#fff}.criterion-title{font-weight:800;margin-bottom:4px}.criterion-meta{font-size:13px;color:var(--muted)}.criteria-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    details{border:1px solid var(--border);border-radius:14px;background:#fff;margin-top:14px} summary{cursor:pointer;padding:14px 16px;font-weight:800;color:var(--blue)} details > div{padding:0 16px 16px}
-    @media (max-width:960px){.grid2,.grid3,.grid4,.pillrow,.summary,.criteria-list{grid-template-columns:1fr}.ankle{font-size:42px}.banner{font-size:22px}.header,.section{padding:22px 18px}.wrap{padding:12px}.quicknav{width:100%}.navbtn{flex:1 1 calc(50% - 8px)}.topbar{position:sticky;top:0}}
-    @media print{body{background:#fff}.topbar,.quicknav,.quicklink,.status{display:none}.wrap{max-width:none;padding:0}.sheet{box-shadow:none;border:none;border-radius:0}.header,.section{padding:11mm}.section,.box,details{break-inside:avoid}.page-break{break-before:page} input,textarea,select{padding:0;border:none;background:transparent}.summary{grid-template-columns:repeat(2,1fr)}}
+    .wrap{max-width:1220px;margin:0 auto;padding:16px}.sheet{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .header{padding:20px 24px 18px;border-bottom:10px solid var(--blue)}.logo{font-size:14px;font-weight:800;letter-spacing:.08em;color:var(--blue);text-transform:uppercase}.maintitle{margin-top:14px;font-size:17px;font-weight:700;text-transform:uppercase;color:#34495e}.ankle{font-size:50px;line-height:1;font-weight:800;color:var(--blue2);margin-top:4px}.subtitle{margin-top:8px;color:var(--muted)}
+    .patient{border:1px solid #8ed0e7;border-radius:14px;background:#f2f5fb;padding:16px}.labelcap{font-size:12px;font-weight:800;text-transform:uppercase;color:#56697d;letter-spacing:.04em;margin-bottom:14px}
+    .grid2,.grid3,.grid4{display:grid;gap:14px}.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(4,1fr)}.field label{display:block;font-size:12px;font-weight:700;color:#56697d;text-transform:uppercase;margin-bottom:5px}
+    input,textarea,select{width:100%;padding:10px 10px;border:none;border-bottom:2px solid #8ec7db;background:transparent;font-size:16px;border-radius:0} textarea{border:1px solid var(--border);border-radius:8px;background:#fff;min-height:90px} input[readonly]{background:#f7fbff} input[type="checkbox"],input[type="radio"]{width:18px;height:18px}
+    .section{padding:22px 24px;border-top:1px solid var(--line)} .banner{background:var(--blue);color:#fff;padding:12px 14px;border-radius:8px;font-weight:800;font-size:24px}.subtext{margin:10px 0 16px;color:var(--muted)} .soft{background:#eaf7ee;border-left:4px solid #2f8f46;padding:10px 12px;border-radius:6px;margin:12px 0 16px;color:#46624f}
+    .box{border:1px solid var(--border);border-radius:14px;padding:14px;background:#fff}.box h3{margin:0 0 8px;color:var(--blue);font-size:18px}.box p{margin:0 0 10px;color:var(--muted);font-size:14px} table{width:100%;border-collapse:collapse;background:#fff} th,td{border:1px solid var(--border);padding:8px;vertical-align:middle} th{background:var(--blue);color:#fff;text-align:left}
+    .subhead{margin:16px 0 10px;color:var(--blue);font-weight:800;font-size:21px}.footnote{margin-top:14px;background:#eef6ff;border-left:5px solid #6fb5ff;padding:12px 14px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}.sumcard{border-radius:14px;padding:14px;border:1px solid var(--border);background:#fff}.sumcard h4{margin:0 0 6px;font-size:13px;text-transform:uppercase;color:var(--muted)}.sumcard .big{font-size:22px;font-weight:800}.ok{background:var(--greenbg)!important;color:var(--green)!important}.bad{background:var(--redbg)!important;color:var(--red)!important}.mid{background:var(--amberbg)!important;color:var(--amber)!important}
+    .criterion{padding:10px;border-radius:12px;border:1px solid var(--border);background:#fff}.criterion-title{font-weight:800;margin-bottom:4px}.criterion-meta{font-size:13px;color:var(--muted)}.criteria-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    details{border:1px solid var(--border);border-radius:14px;background:#fff;margin-top:12px} summary{cursor:pointer;padding:12px 14px;font-weight:800;color:var(--blue)} details > div{padding:0 14px 14px}
+    .minihead{padding:10px 24px 0;color:var(--muted);font-size:13px}
+    @media (max-width:960px){.grid2,.grid3,.grid4,.summary,.criteria-list{grid-template-columns:1fr}.ankle{font-size:38px}.banner{font-size:20px}.header,.section,.minihead{padding-left:14px;padding-right:14px}.wrap{padding:10px}}
+    @media print{body{background:#fff}.wrap{max-width:none;padding:0}.sheet{box-shadow:none;border:none;border-radius:0}.header,.section{padding:10mm 10mm 8mm}.section,.box,details{break-inside:avoid}.page-break{break-before:page} input,textarea,select{padding:0;border:none;background:transparent}.summary{grid-template-columns:repeat(2,1fr)}}
   </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="topbar">
-    <div class="titlebox">
-      <strong>Scheda caviglia digitale v4</strong>
-      <div>Versione ottimizzata per tablet, con target automatici, riepilogo intelligente e navigazione rapida.</div>
-      <div class="status" id="saveStatus">La scheda apre vuota. Usa solo Svuota scheda e Stampa.</div>
-    </div>
-    <div class="actions">
-      <button class="btn warn" onclick="newScheda()" type="button">Svuota scheda</button>
-      
-      <button class="btn primary" onclick="window.print()" type="button">Stampa / Salva PDF</button>
-    </div>
-    <div class="quicknav">
-      <a class="navbtn" href="#top">Inizio</a>
-      <a class="navbtn" href="#fase1">Fase 1</a>
-      <a class="navbtn" href="#fase2">Fase 2</a>
-      <a class="navbtn" href="#fase3">Fase 3</a>
-      <a class="navbtn" href="#riepilogo">Riepilogo</a>
-    </div>
-  </div>
-
   <form id="form" class="sheet" autocomplete="off">
     <section class="header" id="top">
       <div class="logo">Renova Physio Clinic</div>
       <div class="maintitle">Scheda di valutazione</div>
       <div class="ankle">CAVIGLIA</div>
       <div class="subtitle">Protocollo criteria-based per fasi di progressione</div>
-      <div class="pillrow"><div class="pill">LAS</div><div class="pill">MAS</div><div class="pill">Fratture</div><div class="pill">Tendinopatia achillea</div></div>
-      <div class="patient">
+            <div class="patient">
         <div class="labelcap">Dati paziente</div>
         <div class="grid2">
           <div class="field"><label>Nome e cognome</label><input name="nome"></div>
@@ -63,91 +41,40 @@
           <div class="field"><label>Arto coinvolto</label><select name="arto"><option></option><option>Destro</option><option>Sinistro</option><option>Bilaterale</option></select></div>
         </div>
       </div>
-      <div class="quicklink"><strong>Uso consigliato:</strong> compila la scheda, controlla il riepilogo automatico finale e poi usa <strong>Stampa / Salva PDF</strong>. Il salvataggio locale vale solo per questo dispositivo.</div>
-      <div class="summary" id="dashboardSummary">
+      <div class="minihead">Versione v7: senza barra superiore, senza pulsanti fissi. Compila e stampa il PDF finale dal browser.</div>
+      <div class="summary">
         <div class="sumcard mid"><h4>Stato Fase 1</h4><div class="big" id="sumF1">In corso</div></div>
         <div class="sumcard mid"><h4>Stato Fase 2</h4><div class="big" id="sumF2">In corso</div></div>
         <div class="sumcard mid"><h4>Stato Fase 3</h4><div class="big" id="sumF3">In corso</div></div>
         <div class="sumcard"><h4>Pronto per</h4><div class="big" id="sumNext">Valutazione</div></div>
       </div>
     </section>
-
-    <section class="section" id="fase1">
-      <div class="banner">FASE 1 — Dolore · ROM · Gonfiore · Equilibrio di base</div>
-      <div class="subtext">Obiettivo: controllo del dolore, recupero del ROM passivo e attivo, riduzione del gonfiore, equilibrio monopodico di base.</div>
-      <div class="grid2">
-        <div class="box"><h3>Dolore</h3><p>NRS 0 alla deambulazione.</p><div class="field"><label>NRS misurato /10</label><input type="number" step="0.1" name="f1_nrs"></div></div>
-        <div class="box"><h3>Gonfiore</h3><p>Figure of 8 ≤ 1 cm rispetto al controlaterale.</p><div class="grid3"><div class="field"><label>Arto affetto (cm)</label><input type="number" step="0.1" name="f1_fig_aff"></div><div class="field"><label>Controlaterale (cm)</label><input type="number" step="0.1" name="f1_fig_ctrl"></div><div class="field"><label>Differenza Δ (cm)</label><input type="number" step="0.1" name="f1_fig_diff" readonly></div></div></div>
-      </div>
-      <div class="grid2" style="margin-top:16px">
-        <div class="box"><h3>ROM</h3><p>ROM passivo e attivo completi, simmetrici, senza dolore o compensi.</p><div class="grid2"><div class="field"><label>ROM passivo</label><select name="f1_rom_pass"><option></option><option>Simmetrico</option><option>Non simmetrico</option></select></div><div class="field"><label>ROM attivo</label><select name="f1_rom_att"><option></option><option>Simmetrico</option><option>Non simmetrico</option></select></div></div><div class="subhead">WBLT</div><div class="grid3"><div class="field"><label>Affetto (cm)</label><input type="number" step="0.1" name="f1_wblt_aff"></div><div class="field"><label>Controlaterale (cm)</label><input type="number" step="0.1" name="f1_wblt_ctrl"></div><div class="field"><label>Differenza Δ (cm)</label><input type="number" step="0.1" name="f1_wblt_diff" readonly></div></div></div>
-        <div class="box"><h3>Equilibrio — Pedana di forza</h3><p>Ellisse COP ≤ 20% differenza dal controlaterale, 30 sec occhi aperti.</p><div class="grid3"><div class="field"><label>COP affetto (mm²)</label><input type="number" step="0.1" name="f1_cop_aff"></div><div class="field"><label>COP controlaterale (mm²)</label><input type="number" step="0.1" name="f1_cop_ctrl"></div><div class="field"><label>Differenza %</label><input type="number" step="0.1" name="f1_cop_diff" readonly></div></div><div class="subhead">FAAM — baseline fase 1</div><div class="field"><label>Score misurato</label><input type="number" step="0.1" name="f1_faam"></div></div>
-      </div>
-      <div class="field" style="margin-top:16px"><label>Note cliniche fase 1</label><textarea name="f1_note"></textarea></div>
-      <details open><summary>Verifica automatica Fase 1</summary><div class="criteria-list" id="f1Checks"></div></details>
-    </section>
-
-    <section class="section page-break" id="fase2">
-      <div class="banner">FASE 2 — Forza · Resistenza muscolare · Controllo neuromuscolare</div>
-      <div class="soft">Prerequisito: tutti i criteri di fase 1 devono essere soddisfatti e mantenuti.</div>
-      <div class="subhead">Forza — Dinamometro (LSI ≥ 90%)</div>
-      <table><thead><tr><th>Muscolo</th><th>Affetto (kg)</th><th>Controlaterale (kg)</th><th>LSI %</th><th>Target</th><th>√</th></tr></thead><tbody>
-        <tr><td>Inversori</td><td><input type="number" step="0.1" name="inv_aff"></td><td><input type="number" step="0.1" name="inv_ctrl"></td><td><input type="number" step="0.1" name="inv_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="inv_ok"></td></tr>
-        <tr><td>Eversori</td><td><input type="number" step="0.1" name="eve_aff"></td><td><input type="number" step="0.1" name="eve_ctrl"></td><td><input type="number" step="0.1" name="eve_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="eve_ok"></td></tr>
-        <tr><td>Alluce (flessore)</td><td><input type="number" step="0.1" name="all_aff"></td><td><input type="number" step="0.1" name="all_ctrl"></td><td><input type="number" step="0.1" name="all_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="all_ok"></td></tr>
-        <tr><td>Tibiale anteriore</td><td><input type="number" step="0.1" name="ta_aff"></td><td><input type="number" step="0.1" name="ta_ctrl"></td><td><input type="number" step="0.1" name="ta_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="ta_ok"></td></tr>
-        <tr><td>Soleo</td><td><input type="number" step="0.1" name="sol_aff"></td><td><input type="number" step="0.1" name="sol_ctrl"></td><td><input type="number" step="0.1" name="sol_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="sol_ok"></td></tr>
-        <tr><td>Gemello</td><td><input type="number" step="0.1" name="gem_aff"></td><td><input type="number" step="0.1" name="gem_ctrl"></td><td><input type="number" step="0.1" name="gem_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="gem_ok"></td></tr>
-      </tbody></table>
-      <div class="subhead">Resistenza muscolare</div>
-      <div class="box"><p>Single leg calf raise — protocollo Hébert-Losier, LSI ≥ 85%, minimo 20 ripetizioni.</p><div class="grid3"><div class="field"><label>Ripetizioni affetto</label><input type="number" name="calf_aff"></div><div class="field"><label>Ripetizioni controlaterale</label><input type="number" name="calf_ctrl"></div><div class="field"><label>LSI %</label><input type="number" step="0.1" name="calf_lsi" readonly></div></div></div>
-      <div class="subhead">Controllo neuromuscolare</div>
-      <table><thead><tr><th>Criterio qualitativo</th><th>Buono</th><th>Discreto</th><th>Scarso</th></tr></thead><tbody>
-        <tr><td>Mantiene equilibrio</td><td><input type="radio" name="s1" value="Buono"></td><td><input type="radio" name="s1" value="Discreto"></td><td><input type="radio" name="s1" value="Scarso"></td></tr>
-        <tr><td>Movimento fluido e controllato</td><td><input type="radio" name="s2" value="Buono"></td><td><input type="radio" name="s2" value="Discreto"></td><td><input type="radio" name="s2" value="Scarso"></td></tr>
-        <tr><td>Squat ≥ 60° flessione</td><td><input type="radio" name="s3" value="Buono"></td><td><input type="radio" name="s3" value="Discreto"></td><td><input type="radio" name="s3" value="Scarso"></td></tr>
-        <tr><td>Nessun valgismo di ginocchio</td><td><input type="radio" name="s4" value="Buono"></td><td><input type="radio" name="s4" value="Discreto"></td><td><input type="radio" name="s4" value="Scarso"></td></tr>
-        <tr><td>Nessuna deviazione pelvica</td><td><input type="radio" name="s5" value="Buono"></td><td><input type="radio" name="s5" value="Discreto"></td><td><input type="radio" name="s5" value="Scarso"></td></tr>
-        <tr><td>Nessuna adduzione/IR anca</td><td><input type="radio" name="s6" value="Buono"></td><td><input type="radio" name="s6" value="Discreto"></td><td><input type="radio" name="s6" value="Scarso"></td></tr>
-        <tr><td>Centro ginocchio sopra piede</td><td><input type="radio" name="s7" value="Buono"></td><td><input type="radio" name="s7" value="Discreto"></td><td><input type="radio" name="s7" value="Scarso"></td></tr>
-      </tbody></table>
-      <div class="grid2" style="margin-top:16px"><div class="field"><label>Rating arto affetto</label><input name="f2_rating_aff"></div><div class="field"><label>Rating controlaterale</label><input name="f2_rating_ctrl"></div></div>
-      <div class="box" style="margin-top:16px"><p>Pedana monopodica occhi chiusi ≤ 20% differenza.</p><div class="grid3"><div class="field"><label>COP occhi chiusi affetto (mm²)</label><input type="number" step="0.1" name="f2_cop_aff"></div><div class="field"><label>COP occhi chiusi controlaterale (mm²)</label><input type="number" step="0.1" name="f2_cop_ctrl"></div><div class="field"><label>Differenza %</label><input type="number" step="0.1" name="f2_cop_diff" readonly></div></div><div class="field" style="margin-top:12px"><label>FAAM — metà percorso fase 2</label><input type="number" step="0.1" name="f2_faam"></div></div>
-      <details open><summary>Verifica automatica Fase 2</summary><div class="criteria-list" id="f2Checks"></div></details>
-    </section>
-
-    <section class="section page-break" id="fase3">
-      <div class="banner">FASE 3 — Potenza · Test sport-specifici · Ritorno all'attività</div>
-      <div class="soft">Prerequisito: tutti i criteri di fase 1 e fase 2 devono essere soddisfatti.</div>
-      <div class="subhead">Forza massimale — IMTP</div>
-      <div class="grid4"><div class="field"><label>IMTP affetto (kg)</label><input type="number" step="0.1" name="imtp_aff"></div><div class="field"><label>IMTP controlaterale (kg)</label><input type="number" step="0.1" name="imtp_ctrl"></div><div class="field"><label>IMTP pre-infortunio (kg)</label><input type="number" step="0.1" name="imtp_pre"></div><div class="field"><label>LSI %</label><input type="number" step="0.1" name="imtp_lsi" readonly></div></div>
-      <div class="subhead">Potenza e reattività</div>
-      <div class="grid2"><div class="box"><h3>CMJ</h3><div class="grid3"><div class="field"><label>CMJ affetto (cm)</label><input type="number" step="0.1" name="cmj_aff"></div><div class="field"><label>CMJ controlaterale (cm)</label><input type="number" step="0.1" name="cmj_ctrl"></div><div class="field"><label>LSI %</label><input type="number" step="0.1" name="cmj_lsi" readonly></div></div></div><div class="box"><h3>Drop jump — RSI</h3><div class="grid3"><div class="field"><label>Tempo contatto (ms)</label><input type="number" step="0.1" name="drop_tc"></div><div class="field"><label>RSI misurato</label><input type="number" step="0.01" name="drop_rsi"></div><div class="field"><label>Altezza salto (cm)</label><input type="number" step="0.1" name="drop_h"></div></div></div></div>
-      <div class="subhead">Test sport-specifici</div>
-      <table><thead><tr><th>Test</th><th>Descrizione</th><th>Affetto</th><th>Controlaterale</th><th>LSI %</th><th>Target</th><th>√</th></tr></thead><tbody>
-        <tr><td>Side hop test</td><td>2 strisce 40 cm — salti laterali monopodici 30 sec</td><td><input type="number" step="0.1" name="side_aff"></td><td><input type="number" step="0.1" name="side_ctrl"></td><td><input type="number" step="0.1" name="side_lsi" readonly></td><td>≥ 95%</td><td><input type="checkbox" name="side_ok"></td></tr>
-        <tr><td>Square hop test</td><td>Quadrato 40×40 cm — salti monopodici sui 4 angoli — tempo</td><td><input type="number" step="0.1" name="square_aff"></td><td><input type="number" step="0.1" name="square_ctrl"></td><td><input type="number" step="0.1" name="square_lsi" readonly></td><td>≥ 95%</td><td><input type="checkbox" name="square_ok"></td></tr>
-      </tbody></table>
-      <div class="grid2" style="margin-top:16px"><div class="field"><label>FAAM ADL</label><input type="number" step="0.1" name="f3_faam_adl"></div><div class="field"><label>FAAM Sport</label><input type="number" step="0.1" name="f3_faam_sport"></div></div>
-      <div class="field" style="margin-top:16px"><label>Note RTP</label><textarea name="f3_note"></textarea></div>
-      <details open><summary>Verifica automatica Fase 3</summary><div class="criteria-list" id="f3Checks"></div></details>
-    </section>
-
-    <section class="section page-break" id="riepilogo">
-      <div class="banner">RIEPILOGO CRITERI DI PROGRESSIONE</div>
-      <div class="summary" style="margin-top:18px">
-        <div class="sumcard" id="cardF1"><h4>Fase 1</h4><div class="big" id="finalF1">In corso</div></div>
-        <div class="sumcard" id="cardF2"><h4>Fase 2</h4><div class="big" id="finalF2">In corso</div></div>
-        <div class="sumcard" id="cardF3"><h4>Fase 3</h4><div class="big" id="finalF3">In corso</div></div>
-        <div class="sumcard" id="cardNext"><h4>Esito</h4><div class="big" id="finalNext">Valutazione</div></div>
-      </div>
-      <div class="footnote" id="clinicalDecision">Compila i campi per ottenere un riepilogo automatico dei criteri raggiunti.</div>
-    </section>
+    <section class="section" id="fase1"><div class="banner">FASE 1 — Dolore · ROM · Gonfiore · Equilibrio di base</div><div class="subtext">Obiettivo: controllo del dolore, recupero del ROM passivo e attivo, riduzione del gonfiore, equilibrio monopodico di base.</div><div class="grid2"><div class="box"><h3>Dolore</h3><p>NRS 0 alla deambulazione.</p><div class="field"><label>NRS misurato /10</label><input type="number" step="0.1" name="f1_nrs"></div></div><div class="box"><h3>Gonfiore</h3><p>Figure of 8 ≤ 1 cm rispetto al controlaterale.</p><div class="grid3"><div class="field"><label>Arto affetto (cm)</label><input type="number" step="0.1" name="f1_fig_aff"></div><div class="field"><label>Controlaterale (cm)</label><input type="number" step="0.1" name="f1_fig_ctrl"></div><div class="field"><label>Differenza Δ (cm)</label><input type="number" step="0.1" name="f1_fig_diff" readonly></div></div></div></div><div class="grid2" style="margin-top:14px"><div class="box"><h3>ROM</h3><p>ROM passivo e attivo completi, simmetrici, senza dolore o compensi.</p><div class="grid2"><div class="field"><label>ROM passivo</label><select name="f1_rom_pass"><option></option><option>Simmetrico</option><option>Non simmetrico</option></select></div><div class="field"><label>ROM attivo</label><select name="f1_rom_att"><option></option><option>Simmetrico</option><option>Non simmetrico</option></select></div></div><div class="subhead">WBLT</div><div class="grid3"><div class="field"><label>Affetto (cm)</label><input type="number" step="0.1" name="f1_wblt_aff"></div><div class="field"><label>Controlaterale (cm)</label><input type="number" step="0.1" name="f1_wblt_ctrl"></div><div class="field"><label>Differenza Δ (cm)</label><input type="number" step="0.1" name="f1_wblt_diff" readonly></div></div></div><div class="box"><h3>Equilibrio — Pedana di forza</h3><p>Ellisse COP ≤ 20% differenza dal controlaterale, 30 sec occhi aperti.</p><div class="grid3"><div class="field"><label>COP affetto (mm²)</label><input type="number" step="0.1" name="f1_cop_aff"></div><div class="field"><label>COP controlaterale (mm²)</label><input type="number" step="0.1" name="f1_cop_ctrl"></div><div class="field"><label>Differenza %</label><input type="number" step="0.1" name="f1_cop_diff" readonly></div></div><div class="subhead">FAAM — baseline fase 1</div><div class="field"><label>Score misurato</label><input type="number" step="0.1" name="f1_faam"></div></div></div><div class="field" style="margin-top:14px"><label>Note cliniche fase 1</label><textarea name="f1_note"></textarea></div><details open><summary>Verifica automatica Fase 1</summary><div class="criteria-list" id="f1Checks"></div></details></section>
+    <section class="section page-break" id="fase2"><div class="banner">FASE 2 — Forza · Resistenza muscolare · Controllo neuromuscolare</div><div class="soft">Prerequisito: tutti i criteri di fase 1 devono essere soddisfatti e mantenuti.</div><div class="subhead">Forza — Dinamometro (LSI ≥ 90%)</div><table><thead><tr><th>Muscolo</th><th>Affetto (kg)</th><th>Controlaterale (kg)</th><th>LSI %</th><th>Target</th><th>√</th></tr></thead><tbody>
+      <tr><td>Inversori</td><td><input type="number" step="0.1" name="inv_aff"></td><td><input type="number" step="0.1" name="inv_ctrl"></td><td><input type="number" step="0.1" name="inv_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="inv_ok"></td></tr>
+      <tr><td>Eversori</td><td><input type="number" step="0.1" name="eve_aff"></td><td><input type="number" step="0.1" name="eve_ctrl"></td><td><input type="number" step="0.1" name="eve_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="eve_ok"></td></tr>
+      <tr><td>Alluce (flessore)</td><td><input type="number" step="0.1" name="all_aff"></td><td><input type="number" step="0.1" name="all_ctrl"></td><td><input type="number" step="0.1" name="all_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="all_ok"></td></tr>
+      <tr><td>Tibiale anteriore</td><td><input type="number" step="0.1" name="ta_aff"></td><td><input type="number" step="0.1" name="ta_ctrl"></td><td><input type="number" step="0.1" name="ta_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="ta_ok"></td></tr>
+      <tr><td>Soleo</td><td><input type="number" step="0.1" name="sol_aff"></td><td><input type="number" step="0.1" name="sol_ctrl"></td><td><input type="number" step="0.1" name="sol_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="sol_ok"></td></tr>
+      <tr><td>Gemello</td><td><input type="number" step="0.1" name="gem_aff"></td><td><input type="number" step="0.1" name="gem_ctrl"></td><td><input type="number" step="0.1" name="gem_lsi" readonly></td><td>≥ 90%</td><td><input type="checkbox" name="gem_ok"></td></tr>
+    </tbody></table><div class="subhead">Resistenza muscolare</div><div class="box"><p>Single leg calf raise — protocollo Hébert-Losier, LSI ≥ 85%, minimo 20 ripetizioni.</p><div class="grid3"><div class="field"><label>Ripetizioni affetto</label><input type="number" name="calf_aff"></div><div class="field"><label>Ripetizioni controlaterale</label><input type="number" name="calf_ctrl"></div><div class="field"><label>LSI %</label><input type="number" step="0.1" name="calf_lsi" readonly></div></div></div><div class="subhead">Controllo neuromuscolare</div><table><thead><tr><th>Criterio qualitativo</th><th>Buono</th><th>Discreto</th><th>Scarso</th></tr></thead><tbody>
+      <tr><td>Mantiene equilibrio</td><td><input type="radio" name="s1" value="Buono"></td><td><input type="radio" name="s1" value="Discreto"></td><td><input type="radio" name="s1" value="Scarso"></td></tr>
+      <tr><td>Movimento fluido e controllato</td><td><input type="radio" name="s2" value="Buono"></td><td><input type="radio" name="s2" value="Discreto"></td><td><input type="radio" name="s2" value="Scarso"></td></tr>
+      <tr><td>Squat ≥ 60° flessione</td><td><input type="radio" name="s3" value="Buono"></td><td><input type="radio" name="s3" value="Discreto"></td><td><input type="radio" name="s3" value="Scarso"></td></tr>
+      <tr><td>Nessun valgismo di ginocchio</td><td><input type="radio" name="s4" value="Buono"></td><td><input type="radio" name="s4" value="Discreto"></td><td><input type="radio" name="s4" value="Scarso"></td></tr>
+      <tr><td>Nessuna deviazione pelvica</td><td><input type="radio" name="s5" value="Buono"></td><td><input type="radio" name="s5" value="Discreto"></td><td><input type="radio" name="s5" value="Scarso"></td></tr>
+      <tr><td>Nessuna adduzione/IR anca</td><td><input type="radio" name="s6" value="Buono"></td><td><input type="radio" name="s6" value="Discreto"></td><td><input type="radio" name="s6" value="Scarso"></td></tr>
+      <tr><td>Centro ginocchio sopra piede</td><td><input type="radio" name="s7" value="Buono"></td><td><input type="radio" name="s7" value="Discreto"></td><td><input type="radio" name="s7" value="Scarso"></td></tr>
+    </tbody></table><div class="grid2" style="margin-top:14px"><div class="field"><label>Rating arto affetto</label><input name="f2_rating_aff"></div><div class="field"><label>Rating controlaterale</label><input name="f2_rating_ctrl"></div></div><div class="box" style="margin-top:14px"><p>Pedana monopodica occhi chiusi ≤ 20% differenza.</p><div class="grid3"><div class="field"><label>COP occhi chiusi affetto (mm²)</label><input type="number" step="0.1" name="f2_cop_aff"></div><div class="field"><label>COP occhi chiusi controlaterale (mm²)</label><input type="number" step="0.1" name="f2_cop_ctrl"></div><div class="field"><label>Differenza %</label><input type="number" step="0.1" name="f2_cop_diff" readonly></div></div><div class="field" style="margin-top:10px"><label>FAAM — metà percorso fase 2</label><input type="number" step="0.1" name="f2_faam"></div></div><details open><summary>Verifica automatica Fase 2</summary><div class="criteria-list" id="f2Checks"></div></details></section>
+    <section class="section page-break" id="fase3"><div class="banner">FASE 3 — Potenza · Test sport-specifici · Ritorno all'attività</div><div class="soft">Prerequisito: tutti i criteri di fase 1 e fase 2 devono essere soddisfatti.</div><div class="subhead">Forza massimale — IMTP</div><div class="grid4"><div class="field"><label>IMTP affetto (kg)</label><input type="number" step="0.1" name="imtp_aff"></div><div class="field"><label>IMTP controlaterale (kg)</label><input type="number" step="0.1" name="imtp_ctrl"></div><div class="field"><label>IMTP pre-infortunio (kg)</label><input type="number" step="0.1" name="imtp_pre"></div><div class="field"><label>LSI %</label><input type="number" step="0.1" name="imtp_lsi" readonly></div></div><div class="subhead">Potenza e reattività</div><div class="grid2"><div class="box"><h3>CMJ</h3><div class="grid3"><div class="field"><label>CMJ affetto (cm)</label><input type="number" step="0.1" name="cmj_aff"></div><div class="field"><label>CMJ controlaterale (cm)</label><input type="number" step="0.1" name="cmj_ctrl"></div><div class="field"><label>LSI %</label><input type="number" step="0.1" name="cmj_lsi" readonly></div></div></div><div class="box"><h3>Drop jump — RSI</h3><div class="grid3"><div class="field"><label>Tempo contatto (ms)</label><input type="number" step="0.1" name="drop_tc"></div><div class="field"><label>RSI misurato</label><input type="number" step="0.01" name="drop_rsi"></div><div class="field"><label>Altezza salto (cm)</label><input type="number" step="0.1" name="drop_h"></div></div></div></div><div class="subhead">Test sport-specifici</div><table><thead><tr><th>Test</th><th>Descrizione</th><th>Affetto</th><th>Controlaterale</th><th>LSI %</th><th>Target</th><th>√</th></tr></thead><tbody>
+      <tr><td>Side hop test</td><td>2 strisce 40 cm — salti laterali monopodici 30 sec</td><td><input type="number" step="0.1" name="side_aff"></td><td><input type="number" step="0.1" name="side_ctrl"></td><td><input type="number" step="0.1" name="side_lsi" readonly></td><td>≥ 95%</td><td><input type="checkbox" name="side_ok"></td></tr>
+      <tr><td>Square hop test</td><td>Quadrato 40×40 cm — salti monopodici sui 4 angoli — tempo</td><td><input type="number" step="0.1" name="square_aff"></td><td><input type="number" step="0.1" name="square_ctrl"></td><td><input type="number" step="0.1" name="square_lsi" readonly></td><td>≥ 95%</td><td><input type="checkbox" name="square_ok"></td></tr>
+    </tbody></table><div class="grid2" style="margin-top:14px"><div class="field"><label>FAAM ADL</label><input type="number" step="0.1" name="f3_faam_adl"></div><div class="field"><label>FAAM Sport</label><input type="number" step="0.1" name="f3_faam_sport"></div></div><div class="field" style="margin-top:14px"><label>Note RTP</label><textarea name="f3_note"></textarea></div><details open><summary>Verifica automatica Fase 3</summary><div class="criteria-list" id="f3Checks"></div></details></section>
+    <section class="section page-break" id="riepilogo"><div class="banner">RIEPILOGO CRITERI DI PROGRESSIONE</div><div class="summary" style="margin-top:14px"><div class="sumcard" id="cardF1"><h4>Fase 1</h4><div class="big" id="finalF1">In corso</div></div><div class="sumcard" id="cardF2"><h4>Fase 2</h4><div class="big" id="finalF2">In corso</div></div><div class="sumcard" id="cardF3"><h4>Fase 3</h4><div class="big" id="finalF3">In corso</div></div><div class="sumcard" id="cardNext"><h4>Esito</h4><div class="big" id="finalNext">Valutazione</div></div></div><div class="footnote" id="clinicalDecision">Compila i campi per ottenere un riepilogo automatico dei criteri raggiunti.</div></section>
   </form>
 </div>
 <script>
-const form=document.getElementById('form'); const KEY='renova_caviglia_v4'; const oldKeys=['renova_caviglia_v3','renova_caviglia_v2','scheda_caviglia_digitale_v1'];
-const statusEl=document.getElementById('saveStatus');
+const form=document.getElementById('form');
 function n(name){const el=form.elements[name];return el&&el.value!==''?parseFloat(el.value):null}
 function t(name){const el=form.elements[name];return el?String(el.value||'').trim():''}
 function setv(name,val){if(form.elements[name]) form.elements[name].value=(val===null||Number.isNaN(val))?'':val}
@@ -155,59 +82,12 @@ function diff(a,b,out){const av=n(a),bv=n(b); if(av===null||bv===null){setv(out,
 function lsi(a,b,out){const av=n(a),bv=n(b); if(av===null||bv===null||bv===0){setv(out,null);return;} setv(out,((av/bv)*100).toFixed(1));}
 function lsiInverseTime(a,b,out){const av=n(a),bv=n(b); if(av===null||bv===null||av===0){setv(out,null);return;} setv(out,((bv/av)*100).toFixed(1));}
 function percDiff(a,b,out){const av=n(a),bv=n(b); if(av===null||bv===null||bv===0){setv(out,null);return;} setv(out,(Math.abs(av-bv)/bv*100).toFixed(1));}
-function recalc(){diff('f1_fig_aff','f1_fig_ctrl','f1_fig_diff'); diff('f1_wblt_aff','f1_wblt_ctrl','f1_wblt_diff'); percDiff('f1_cop_aff','f1_cop_ctrl','f1_cop_diff'); lsi('inv_aff','inv_ctrl','inv_lsi'); lsi('eve_aff','eve_ctrl','eve_lsi'); lsi('all_aff','all_ctrl','all_lsi'); lsi('ta_aff','ta_ctrl','ta_lsi'); lsi('sol_aff','sol_ctrl','sol_lsi'); lsi('gem_aff','gem_ctrl','gem_lsi'); lsi('calf_aff','calf_ctrl','calf_lsi'); percDiff('f2_cop_aff','f2_cop_ctrl','f2_cop_diff'); lsi('imtp_aff','imtp_ctrl','imtp_lsi'); lsi('cmj_aff','cmj_ctrl','cmj_lsi'); lsi('side_aff','side_ctrl','side_lsi'); lsiInverseTime('square_aff','square_ctrl','square_lsi'); evaluate();}
-function serialize(){const obj={}; [...form.elements].forEach(el=>{if(!el.name) return; if(el.type==='checkbox') obj[el.name]=el.checked; else if(el.type==='radio'){if(el.checked) obj[el.name]=el.value; else if(!(el.name in obj)) obj[el.name]='';} else obj[el.name]=el.value;}); return obj;}
-function renderChecks(targetId, arr){const box=document.getElementById(targetId); box.innerHTML=''; arr.forEach(item=>{const div=document.createElement('div'); div.className='criterion '+(item.ok===true?'ok':item.ok===false?'bad':'mid'); div.innerHTML=`<div class="criterion-title">${item.label}</div><div class="criterion-meta">${item.meta}</div>`; box.appendChild(div);});}
 function criterion(label, ok, meta){return {label,ok,meta};}
-function allGood(arr){return arr.every(x=>x.ok===true);} function someData(arr){return arr.some(x=>x.ok!==null);} 
-function setCard(elId,text,state){const el=document.getElementById(elId); const card=el.parentElement; el.textContent=text; card.classList.remove('ok','bad','mid'); card.classList.add(state);}
-function evaluate(){
-  const f1=[
-    criterion('NRS deambulazione', n('f1_nrs')===null?null:n('f1_nrs')===0, n('f1_nrs')===null?'Inserire NRS':'Target: 0'),
-    criterion('Figure of 8', n('f1_fig_diff')===null?null:n('f1_fig_diff')<=1.0, n('f1_fig_diff')===null?'Inserire misure':'Target: Δ ≤ 1.0 cm'),
-    criterion('ROM passivo + attivo', (t('f1_rom_pass')===''||t('f1_rom_att')==='')?null:(t('f1_rom_pass')==='Simmetrico'&&t('f1_rom_att')==='Simmetrico'), 'Target: entrambi simmetrici'),
-    criterion('WBLT', n('f1_wblt_diff')===null?null:n('f1_wblt_diff')<=1.5, n('f1_wblt_diff')===null?'Inserire misure':'Target: Δ ≤ 1.5 cm'),
-    criterion('COP occhi aperti', n('f1_cop_diff')===null?null:n('f1_cop_diff')<=20, n('f1_cop_diff')===null?'Inserire misure':'Target: ≤ 20%'),
-    criterion('FAAM ADL', n('f1_faam')===null?null:n('f1_faam')>=60, n('f1_faam')===null?'Inserire score':'Target: ≥ 60%')
-  ];
-  const forceVals=['inv_lsi','eve_lsi','all_lsi','ta_lsi','sol_lsi','gem_lsi'].map(k=>n(k));
-  const forceReady=forceVals.every(v=>v!==null); const forceOk=forceReady&&forceVals.every(v=>v>=90);
-  const stepNames=['s1','s2','s3','s4','s5','s6','s7']; const stepVals=stepNames.map(k=>t(k)); const stepReady=stepVals.every(v=>v!==''); const stepOk=stepReady&&stepVals.every(v=>v==='Buono');
-  const f2=[
-    criterion('Forza dinamometro', forceReady?forceOk:null, 'Target: tutti i 6 muscoli LSI ≥ 90%'),
-    criterion('Calf raise', (n('calf_lsi')===null||n('calf_aff')===null)?null:(n('calf_lsi')>=85&&n('calf_aff')>=20), 'Target: LSI ≥ 85% e min 20 ripetizioni'),
-    criterion('Step down test', stepReady?stepOk:null, 'Target: tutti i criteri “Buono”'),
-    criterion('COP occhi chiusi', n('f2_cop_diff')===null?null:n('f2_cop_diff')<=20, n('f2_cop_diff')===null?'Inserire misure':'Target: ≤ 20%'),
-    criterion('FAAM ADL', n('f2_faam')===null?null:n('f2_faam')>=80, n('f2_faam')===null?'Inserire score':'Target: ≥ 80%')
-  ];
-  const f3=[
-    criterion('IMTP', n('imtp_lsi')===null?null:n('imtp_lsi')>=90, n('imtp_lsi')===null?'Inserire misure':'Target operativo: LSI ≥ 90%'),
-    criterion('CMJ', n('cmj_lsi')===null?null:n('cmj_lsi')>=90, n('cmj_lsi')===null?'Inserire misure':'Target: LSI ≥ 90%'),
-    criterion('Drop jump RSI', n('drop_tc')===null?null:n('drop_tc')<250, n('drop_tc')===null?'Inserire tempo contatto':'Target: TC < 250 ms'),
-    criterion('Side hop', n('side_lsi')===null?null:n('side_lsi')>=95, n('side_lsi')===null?'Inserire misure':'Target: LSI ≥ 95%'),
-    criterion('Square hop', n('square_lsi')===null?null:n('square_lsi')>=95, n('square_lsi')===null?'Inserire misure':'Target: LSI ≥ 95%'),
-    criterion('FAAM ADL', n('f3_faam_adl')===null?null:n('f3_faam_adl')>=90, n('f3_faam_adl')===null?'Inserire score':'Target: ≥ 90%'),
-    criterion('FAAM Sport', n('f3_faam_sport')===null?null:n('f3_faam_sport')>=80, n('f3_faam_sport')===null?'Inserire score':'Target: ≥ 80%')
-  ];
-  renderChecks('f1Checks',f1); renderChecks('f2Checks',f2); renderChecks('f3Checks',f3);
-  const f1Done=allGood(f1), f2Done=allGood(f2), f3Done=allGood(f3);
-  setCard('sumF1',f1Done?'Completata':someData(f1)?'In corso':'Vuota',f1Done?'ok':someData(f1)?'mid':'mid');
-  setCard('sumF2',f2Done?'Completata':someData(f2)?'In corso':'Vuota',f2Done?'ok':someData(f2)?'mid':'mid');
-  setCard('sumF3',f3Done?'Completata':someData(f3)?'In corso':'Vuota',f3Done?'ok':someData(f3)?'mid':'mid');
-  setCard('finalF1',f1Done?'Completata':someData(f1)?'In corso':'Vuota',f1Done?'ok':someData(f1)?'mid':'mid');
-  setCard('finalF2',f2Done?'Completata':someData(f2)?'In corso':'Vuota',f2Done?'ok':someData(f2)?'mid':'mid');
-  setCard('finalF3',f3Done?'Completata':someData(f3)?'In corso':'Vuota',f3Done?'ok':someData(f3)?'mid':'mid');
-  let next='Valutazione iniziale', decision='Compila i campi per ottenere un riepilogo automatico dei criteri raggiunti.';
-  if(f1Done&&!f2Done){next='Test Fase 2'; decision='Tutti i criteri di fase 1 risultano soddisfatti. Il paziente è idoneo a procedere con la valutazione della fase 2.';}
-  if(f1Done&&f2Done&&!f3Done){next='Test Fase 3'; decision='Tutti i criteri di fase 1 e fase 2 risultano soddisfatti. Il paziente può procedere alla valutazione della fase 3.';}
-  if(f1Done&&f2Done&&f3Done){next='RTP / Consolidamento'; decision='Tutti i criteri risultano soddisfatti. Il paziente è idoneo al passaggio al programma di consolidamento / ritorno all’attività.';}
-  document.getElementById('sumNext').textContent=next; document.getElementById('finalNext').textContent=next; document.getElementById('clinicalDecision').textContent=decision;
-}
-function restoreCurrent(){try{const raw=localStorage.getItem(KEY); if(!raw) return false; const data=JSON.parse(raw); Object.entries(data).forEach(([k,v])=>{const nodes=form.querySelectorAll(`[name="${k}"]`); nodes.forEach(el=>{if(el.type==='checkbox') el.checked=!!v; else if(el.type==='radio') el.checked=(el.value===v); else el.value=v;});}); recalc(); return true;}catch(e){return false;}}
-function clearOldData(){try{oldKeys.forEach(k=>localStorage.removeItem(k));}catch(e){}}
-function clearSavedTemplate(){return;}
-function newScheda(){if(!confirm('Vuoi svuotare tutti i campi della scheda corrente?')) return; form.reset(); recalc(); statusEl.textContent='Scheda svuotata. Nessun dato precompilato.';}
-clearOldData(); form.reset(); recalc(); form.addEventListener('input',recalc); window.addEventListener('beforeprint',recalc);
+function renderChecks(targetId, arr){const box=document.getElementById(targetId); box.innerHTML=''; arr.forEach(item=>{const div=document.createElement('div'); div.className='criterion '+(item.ok===true?'ok':item.ok===false?'bad':'mid'); div.innerHTML=`<div class="criterion-title">${item.label}</div><div class="criterion-meta">${item.meta}</div>`; box.appendChild(div);});}
+function allGood(arr){return arr.every(x=>x.ok===true)} function someData(arr){return arr.some(x=>x.ok!==null)}
+function setCard(elId,text,state){const el=document.getElementById(elId); const card=el.parentElement; el.textContent=text; card.classList.remove('ok','bad','mid'); card.classList.add(state)}
+function evaluate(){const f1=[criterion('NRS deambulazione', n('f1_nrs')===null?null:n('f1_nrs')===0, 'Target: 0'),criterion('Figure of 8', n('f1_fig_diff')===null?null:n('f1_fig_diff')<=1.0, 'Target: Δ ≤ 1.0 cm'),criterion('ROM passivo + attivo', (t('f1_rom_pass')===''||t('f1_rom_att')==='')?null:(t('f1_rom_pass')==='Simmetrico'&&t('f1_rom_att')==='Simmetrico'), 'Target: entrambi simmetrici'),criterion('WBLT', n('f1_wblt_diff')===null?null:n('f1_wblt_diff')<=1.5, 'Target: Δ ≤ 1.5 cm'),criterion('COP occhi aperti', n('f1_cop_diff')===null?null:n('f1_cop_diff')<=20, 'Target: ≤ 20%'),criterion('FAAM ADL', n('f1_faam')===null?null:n('f1_faam')>=60, 'Target: ≥ 60%')]; const forceVals=['inv_lsi','eve_lsi','all_lsi','ta_lsi','sol_lsi','gem_lsi'].map(k=>n(k)); const forceReady=forceVals.every(v=>v!==null); const forceOk=forceReady&&forceVals.every(v=>v>=90); const stepNames=['s1','s2','s3','s4','s5','s6','s7']; const stepVals=stepNames.map(k=>t(k)); const stepReady=stepVals.every(v=>v!==''); const stepOk=stepReady&&stepVals.every(v=>v==='Buono'); const f2=[criterion('Forza dinamometro', forceReady?forceOk:null, 'Target: tutti i 6 muscoli LSI ≥ 90%'),criterion('Calf raise', (n('calf_lsi')===null||n('calf_aff')===null)?null:(n('calf_lsi')>=85&&n('calf_aff')>=20), 'Target: LSI ≥ 85% e min 20 ripetizioni'),criterion('Step down test', stepReady?stepOk:null, 'Target: tutti i criteri Buono'),criterion('COP occhi chiusi', n('f2_cop_diff')===null?null:n('f2_cop_diff')<=20, 'Target: ≤ 20%'),criterion('FAAM ADL', n('f2_faam')===null?null:n('f2_faam')>=80, 'Target: ≥ 80%')]; const f3=[criterion('IMTP', n('imtp_lsi')===null?null:n('imtp_lsi')>=90, 'Target: LSI ≥ 90%'),criterion('CMJ', n('cmj_lsi')===null?null:n('cmj_lsi')>=90, 'Target: LSI ≥ 90%'),criterion('Drop jump RSI', n('drop_tc')===null?null:n('drop_tc')<250, 'Target: TC < 250 ms'),criterion('Side hop', n('side_lsi')===null?null:n('side_lsi')>=95, 'Target: LSI ≥ 95%'),criterion('Square hop', n('square_lsi')===null?null:n('square_lsi')>=95, 'Target: LSI ≥ 95%'),criterion('FAAM ADL', n('f3_faam_adl')===null?null:n('f3_faam_adl')>=90, 'Target: ≥ 90%'),criterion('FAAM Sport', n('f3_faam_sport')===null?null:n('f3_faam_sport')>=80, 'Target: ≥ 80%')]; renderChecks('f1Checks',f1); renderChecks('f2Checks',f2); renderChecks('f3Checks',f3); const f1Done=allGood(f1), f2Done=allGood(f2), f3Done=allGood(f3); setCard('sumF1',f1Done?'Completata':someData(f1)?'In corso':'Vuota',f1Done?'ok':someData(f1)?'mid':'mid'); setCard('sumF2',f2Done?'Completata':someData(f2)?'In corso':'Vuota',f2Done?'ok':someData(f2)?'mid':'mid'); setCard('sumF3',f3Done?'Completata':someData(f3)?'In corso':'Vuota',f3Done?'ok':someData(f3)?'mid':'mid'); setCard('finalF1',f1Done?'Completata':someData(f1)?'In corso':'Vuota',f1Done?'ok':someData(f1)?'mid':'mid'); setCard('finalF2',f2Done?'Completata':someData(f2)?'In corso':'Vuota',f2Done?'ok':someData(f2)?'mid':'mid'); setCard('finalF3',f3Done?'Completata':someData(f3)?'In corso':'Vuota',f3Done?'ok':someData(f3)?'mid':'mid'); let next='Valutazione iniziale', decision='Compila i campi per ottenere un riepilogo automatico dei criteri raggiunti.'; if(f1Done&&!f2Done){next='Test Fase 2'; decision='Tutti i criteri di fase 1 risultano soddisfatti. Il paziente è idoneo a procedere con la valutazione della fase 2.';} if(f1Done&&f2Done&&!f3Done){next='Test Fase 3'; decision='Tutti i criteri di fase 1 e fase 2 risultano soddisfatti. Il paziente può procedere alla valutazione della fase 3.';} if(f1Done&&f2Done&&f3Done){next='RTP / Consolidamento'; decision='Tutti i criteri risultano soddisfatti. Il paziente è idoneo al passaggio al programma di consolidamento / ritorno all’attività.';} document.getElementById('sumNext').textContent=next; document.getElementById('finalNext').textContent=next; document.getElementById('clinicalDecision').textContent=decision; }
+function recalc(){diff('f1_fig_aff','f1_fig_ctrl','f1_fig_diff'); diff('f1_wblt_aff','f1_wblt_ctrl','f1_wblt_diff'); percDiff('f1_cop_aff','f1_cop_ctrl','f1_cop_diff'); lsi('inv_aff','inv_ctrl','inv_lsi'); lsi('eve_aff','eve_ctrl','eve_lsi'); lsi('all_aff','all_ctrl','all_lsi'); lsi('ta_aff','ta_ctrl','ta_lsi'); lsi('sol_aff','sol_ctrl','sol_lsi'); lsi('gem_aff','gem_ctrl','gem_lsi'); lsi('calf_aff','calf_ctrl','calf_lsi'); percDiff('f2_cop_aff','f2_cop_ctrl','f2_cop_diff'); lsi('imtp_aff','imtp_ctrl','imtp_lsi'); lsi('cmj_aff','cmj_ctrl','cmj_lsi'); lsi('side_aff','side_ctrl','side_lsi'); lsiInverseTime('square_aff','square_ctrl','square_lsi'); evaluate();}
+form.reset(); recalc(); form.addEventListener('input',recalc); window.addEventListener('beforeprint',recalc);
 </script>
-</body>
-</html>
+</body></html>
